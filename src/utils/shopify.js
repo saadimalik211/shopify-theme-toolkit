@@ -8,7 +8,10 @@ function shopifyCLI(command, args = []) {
     const spinner = ora(`Running shopify ${command}...`).start();
     
     // Build command with environment variables
-    const fullCommand = `shopify theme ${command} ${args.join(' ')}`;
+    // Handle 'login' command by using 'init' instead (updated for new Shopify CLI)
+    const fullCommand = command === 'login' 
+      ? `shopify theme init ${args.join(' ')}`
+      : `shopify theme ${command} ${args.join(' ')}`;
     
     exec(fullCommand, (error, stdout, stderr) => {
       if (error) {
