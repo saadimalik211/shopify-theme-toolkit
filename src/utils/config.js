@@ -3,7 +3,7 @@ const path = require('path');
 const chalk = require('chalk');
 
 // Load default configuration
-const defaultConfig = require('../../../config/default');
+const defaultConfig = require('../../config/default');
 
 // Get configuration
 function getConfig() {
